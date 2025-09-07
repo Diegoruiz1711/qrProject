@@ -4,6 +4,7 @@ import { useQR } from '../../QRContext/QRContext';
 import styles from "./Home.module.css";
 import ProductInfo from "../ProducInfo/ProductInfo";
 import Toro from '../../assets/0372_El_Toro.png';
+import Logo from '../../assets/logo.gif'
 
 const Home = () => {
   const {
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div className={styles.body}>
       <div className={styles.languageSelector}>
+        <img src={Logo} alt="ADR Logo" className={styles.adrLogo} />
         <div className={styles.selectedLanguage} onClick={toggleDropdown}>
           {getCurrentLanguageDisplay()}
           <span className={styles.arrow}>{isDropdownOpen ? '▲' : '▼'}</span>

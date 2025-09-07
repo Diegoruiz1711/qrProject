@@ -12,95 +12,32 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Contenedor de contenido con scroll */
-.contentContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-}
-
-/* Estilos para desktop */
-@media (min-width: 1024px) {
-    .body {
-        flex-direction: row;
-        flex-wrap: wrap;
-        height: 100vh; /* Altura completa de la ventana */
-        overflow: hidden; /* Oculta el scroll general */
-    }
-    
-    .contentContainer {
-        flex-direction: row;
-        height: 100vh;
-        overflow: hidden;
-    }
-    
-    .productImage {
-        width: 50%;
-        height: 100vh; /* Altura completa */
-        overflow-y: auto; /* Scroll individual */
-        scrollbar-width: thin; /* Firefox */
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    
-    .productImage::-webkit-scrollbar {
-        width: 6px; /* Chrome, Safari, Edge */
-    }
-    
-    .productImage::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 3px;
-    }
-    
-    .productInfo {
-        width: 50%;
-        height: 100vh; /* Altura completa */
-        overflow-y: auto; /* Scroll individual */
-        scrollbar-width: thin; /* Firefox */
-        border-radius: 5% 0 0 0;
-        border: 2px solid gold;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    
-    .productInfo::-webkit-scrollbar {
-        width: 6px; /* Chrome, Safari, Edge */
-    }
-    
-    .productInfo::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 3px;
-    }
-}
-
-/* Estilos para móviles y tablets */
-@media (max-width: 1023px) {
-    .contentContainer {
-        overflow-y: auto; /* Scroll general para móviles */
-        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-    }
-    
-    .productImage, 
-    .productInfo {
-        width: 100%;
-        padding: 15px;
-        box-sizing: border-box;
-    }
-}
-
-/* Selector de idiomas */
+/* Header con logo y selector de idiomas */
 .languageSelector {
-    position: sticky; /* Se mantiene visible al hacer scroll */
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin: 15px 0;
-    padding: 10px 0;
-    background-color: gold; /* Mismo color de fondo */
+    padding: 10px 20px;
+    background-color: gold;
+}
+
+/* Logo a la izquierda */
+.languageSelector .adrLogo {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Contenedor del selector de idioma */
+.selectorContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .selectedLanguage {
@@ -117,10 +54,8 @@
     border-radius: 8px;
     cursor: pointer;
     user-select: none;
-    position: relative;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    text-align: center;
 }
 
 .selectedLanguage:hover {
@@ -136,8 +71,7 @@
 .languageDropdown {
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 0;
     width: 250px;
     max-height: 300px;
     overflow-y: auto;
@@ -147,10 +81,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     z-index: 1000;
     margin-top: 10px;
-    
-    /* Personalización del scroll */
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
 }
 
 .languageDropdown::-webkit-scrollbar {
@@ -192,12 +122,22 @@
     border-bottom: none;
 }
 
-/* Imagen del producto */
+/* Contenido principal */
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Sección de imagen del producto */
 .productImage {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 .imageFrame {
@@ -260,31 +200,14 @@
     margin: 20px auto;
 }
 
-/* Información del producto */
+/* Sección de información del producto */
 .productInfo {
     background-color: gold;
     box-sizing: border-box;
     padding: 20px;
 }
 
-/* Estilos para el contenido de cada idioma */
-.category {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.categoryItem {
-    font-size: 1.1em;
-    margin: 8px;
-    text-align: center;
-    font-weight: bold;
-}
-
+/* Loading */
 .loading {
     display: flex;
     justify-content: center;
@@ -294,26 +217,95 @@
     background-color: gold;
 }
 
-/* Media queries adicionales para móviles más pequeños */
-@media (max-width: 768px) {
-    .category {
-        flex-direction: column;
-        align-items: center;
+/* ============ MEDIA QUERIES ============ */
+
+/* Estilos para desktop */
+@media (min-width: 1024px) {
+    .body {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100vh;
+        overflow: hidden;
     }
     
-    .productName h1 {
-        font-size: 1.8em;
+    .contentContainer {
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .productImage {
+        width: 50%;
+        height: 100vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+    
+    .productImage::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .productImage::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+    }
+    
+    .productInfo {
+        width: 50%;
+        height: 100vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        border-radius: 5% 0 0 0;
+        border: 2px solid gold;
+    }
+    
+    .productInfo::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .productInfo::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+    }
+}
+
+/* Estilos para tablets */
+@media (max-width: 1023px) {
+    .contentContainer {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .productImage, 
+    .productInfo {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .languageSelector {
+        padding: 10px 15px;
+    }
+    
+    .languageSelector .adrLogo {
+        width: 50px;
     }
     
     .selectedLanguage {
-        min-width: 110px;
+        min-width: 100px;
         height: 50px;
         font-size: 1em;
-        padding: 0 10px;
     }
     
     .languageDropdown {
         width: 220px;
+    }
+    
+    .productName h1 {
+        font-size: 1.8em;
     }
     
     .productDescription {
@@ -326,13 +318,34 @@
     }
 }
 
+/* Estilos para móviles pequeños */
 @media (max-width: 480px) {
-    .productName h1 {
-        font-size: 1.6em;
+    .languageSelector {
+        padding: 8px 10px;
+        flex-direction: column;
+        gap: 10px;
     }
     
-    .categoryItem {
-        font-size: 1em;
+    .languageSelector .adrLogo {
+        width: 45px;
+        margin-bottom: 5px;
+    }
+    
+    .selectedLanguage {
+        min-width: 90px;
+        height: 45px;
+        font-size: 0.9em;
+        padding: 0 10px;
+    }
+    
+    .languageDropdown {
+        width: 200px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .productName h1 {
+        font-size: 1.6em;
     }
     
     .productInfo {
@@ -344,18 +357,8 @@
         margin: 15px auto;
     }
     
-    .languageDropdown {
-        width: 200px;
-    }
-    
     .languageOption {
         padding: 10px;
-        font-size: 0.9em;
-    }
-    
-    .selectedLanguage {
-        min-width: 100px;
-        height: 45px;
         font-size: 0.9em;
     }
     
@@ -371,5 +374,49 @@
     .paraghraph {
         margin: 5px 0;
         font-size: 0.95em;
+    }
+}
+
+/* Tablets en landscape */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .languageSelector .adrLogo {
+        width: 55px;
+    }
+    
+    .selectedLanguage {
+        min-width: 110px;
+        height: 55px;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .languageDropdown {
+        width: 95vw;
+        max-width: 280px;
+    }
+    
+    .selectedLanguage {
+        min-width: 80px;
+        height: 40px;
+        font-size: 0.85em;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .selectedLanguage {
+        transition: none;
+    }
+    
+    .selectedLanguage:hover {
+        transform: none;
+    }
+}
+
+/* Modo oscuro opcional */
+@media (prefers-color-scheme: dark) {
+    .productDescription {
+        background-color: rgba(255, 255, 255, 0.2);
     }
 }
