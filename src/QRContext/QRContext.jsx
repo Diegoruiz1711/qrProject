@@ -1,31 +1,31 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Importaciones estáticas de todos los archivos JSON
-import es from '../locales/es.json';
-import fr from '../locales/fr.json';
-import de from '../locales/de.json';
-import bg from '../locales/bg.json';
-import da from '../locales/da.json';
-import et from '../locales/et.json';
-import el from '../locales/el.json';
-import en from '../locales/en.json';
-import fi from '../locales/fi.json';
-import ga from '../locales/ga.json';
-import hr from '../locales/hr.json';
-import hu from '../locales/hu.json';
-import it from '../locales/it.json';
-import lv from '../locales/lv.json';
-import lt from '../locales/lt.json';
-import mt from '../locales/mt.json';
-import nl from '../locales/nl.json';
-import pl from '../locales/pl.json';
-import pt from '../locales/pt.json';
-import ro from '../locales/ro.json';
-import sk from '../locales/sk.json';
-import sl from '../locales/sl.json';
-import sv from '../locales/sv.json';
-import cs from '../locales/cs.json';
-import ca from '../locales/ca.json';
+import es from '../Locales/es.json';
+import fr from '../Locales/fr.json';
+import de from '../Locales/de.json';
+import bg from '../Locales/bg.json';
+import da from '../Locales/da.json';
+import et from '../Locales/et.json';
+import el from '../Locales/el.json';
+import en from '../Locales/en.json';
+import fi from '../Locales/fi.json';
+import ga from '../Locales/ga.json';
+import hr from '../Locales/hr.json';
+import hu from '../Locales/hu.json';
+import it from '../Locales/it.json';
+import lv from '../Locales/lv.json';
+import lt from '../Locales/lt.json';
+import mt from '../Locales/mt.json';
+import nl from '../Locales/nl.json';
+import pl from '../Locales/pl.json';
+import pt from '../Locales/pt.json';
+import ro from '../Locales/ro.json';
+import sk from '../Locales/sk.json';
+import sl from '../Locales/sl.json';
+import sv from '../Locales/sv.json';
+import cs from '../Locales/cs.json';
+import ca from '../Locales/ca.json';
 
 const QRContext = createContext();
 

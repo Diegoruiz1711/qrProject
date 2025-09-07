@@ -1,7 +1,7 @@
 // src/locales/index.js
 // Este archivo centraliza la exportación de todas las traducciones
 
-// Importar todos los archivos de traducción
+// Importar todos los archivos de traducción con extensión completa
 import es from './es.json';
 import fr from './fr.json';
 import de from './de.json';
@@ -29,16 +29,24 @@ import cs from './cs.json';
 import ca from './ca.json';
 
 // Exportar todas las traducciones como un objeto
-const translations = { es, fr, de, bg, da, et, el, en, fi, ga, hr, hu, it, lv, lt, mt, nl, pl, pt, ro, sk, sl, sv, cs, ca };
+const translations = {
+  es, fr, de, bg, da, et, el, en, fi, ga,
+  hr, hu, it, lv, lt, mt, nl, pl, pt, ro,
+  sk, sl, sv, cs, ca
+};
 
 export default translations;
 
 // También exportar individualmente por si se necesitan
 export {
-    es, fr, de, bg, da, et, el, en, fi, ga, hr, hu, it, lv, lt, mt, nl, pl, pt, ro, sk, sl, sv, cs, ca
+  es, fr, de, bg, da, et, el, en, fi, ga,
+  hr, hu, it, lv, lt, mt, nl, pl, pt, ro,
+  sk, sl, sv, cs, ca
 };
 
 // Exportar la lista de idiomas soportados
 export const supportedLanguages = [
-    'es', 'fr', 'de', 'bg', 'da', 'et', 'el', 'en', 'fi', 'ga', 'hr', 'hu', 'it', 'lv', 'lt', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv', 'cs', 'ca'
+  'es', 'fr', 'de', 'bg', 'da', 'et', 'el', 'en', 'fi', 'ga',
+  'hr', 'hu', 'it', 'lv', 'lt', 'mt', 'nl', 'pl', 'pt', 'ro',
+  'sk', 'sl', 'sv', 'cs', 'ca'
 ];
