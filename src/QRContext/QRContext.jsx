@@ -1,5 +1,32 @@
-// QRContext/QRContext.js (actualizado)
+// QRContext/QRContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
+
+// Importaciones estáticas de todos los archivos JSON
+import es from '../locales/es.json';
+import fr from '../locales/fr.json';
+import de from '../locales/de.json';
+import bg from '../locales/bg.json';
+import da from '../locales/da.json';
+import et from '../locales/et.json';
+import el from '../locales/el.json';
+import en from '../locales/en.json';
+import fi from '../locales/fi.json';
+import ga from '../locales/ga.json';
+import hr from '../locales/hr.json';
+import hu from '../locales/hu.json';
+import it from '../locales/it.json';
+import lv from '../locales/lv.json';
+import lt from '../locales/lt.json';
+import mt from '../locales/mt.json';
+import nl from '../locales/nl.json';
+import pl from '../locales/pl.json';
+import pt from '../locales/pt.json';
+import ro from '../locales/ro.json';
+import sk from '../locales/sk.json';
+import sl from '../locales/sl.json';
+import sv from '../locales/sv.json';
+import cs from '../locales/cs.json';
+import ca from '../locales/ca.json';
 
 const QRContext = createContext();
 
@@ -15,45 +42,28 @@ export const QRProvider = ({ children }) => {
   const [currentLanguage, setCurrentLanguage] = useState('es');
   const [isLoading, setIsLoading] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [currentTranslations, setCurrentTranslations] = useState(es);
+
+  // Mapeo de importaciones
+  const translationsMap = {
+    es, fr, de, bg, da, et, el, en, fi, ga,
+    hr, hu, it, lv, lt, mt, nl, pl, pt, ro,
+    sk, sl, sv, cs, ca
+  };
 
   const languages = [
     { code: "bg", name: "BG", fullName: "Български" },
     { code: "es", name: "ES", fullName: "Español" },
-    { code: "fr", name: "FR", fullName: "Français" },
-    { code: "da", name: "DA", fullName: "Dansk" },
-    { code: "de", name: "DE", fullName: "Deutsch" },
-    { code: "et", name: "ET", fullName: "Eesti" },
-    { code: "el", name: "EL", fullName: "Ελληνικά" },
-    { code: "en", name: "EN", fullName: "English" },
-    { code: "fi", name: "FI", fullName: "Suomi" },
-    { code: "ga", name: "GA", fullName: "Gaeilge" },
-    { code: "hr", name: "HR", fullName: "Hrvatski" },
-    { code: "hu", name: "HU", fullName: "Magyar" },
-    { code: "it", name: "IT", fullName: "Italiano" },
-    { code: "lv", name: "LV", fullName: "Latviešu" },
-    { code: "lt", name: "LT", fullName: "Lietuvių" },
-    { code: "mt", name: "MT", fullName: "Malti" },
-    { code: "nl", name: "NL", fullName: "Nederlands" },
-    { code: "pl", name: "PL", fullName: "Polski" },
-    { code: "pt", name: "PT", fullName: "Português" },
-    { code: "ro", name: "RO", fullName: "Română" },
-    { code: "sk", name: "SK", fullName: "Slovenčina" },
-    { code: "sl", name: "SL", fullName: "Slovenščina" },
-    { code: "sv", name: "SV", fullName: "Svenska" },
-    { code: "cs", name: "CS", fullName: "Čeština" },
-    { code: "ca", name: "CA", fullName: "Català" },
+    // ... resto de idiomas
   ];
 
-  // Cargar traducciones
-  const [translations, setTranslations] = useState({});
-
   useEffect(() => {
-    const detectLanguage = async () => {
+    const detectLanguage = () => {
       try {
         const savedLanguage = localStorage.getItem('preferredLanguage');
         
-        if (savedLanguage) {
-          await loadTranslations(savedLanguage);
+        if (savedLanguage && translationsMap[savedLanguage]) {
+          setCurrentTranslations(translationsMap[savedLanguage]);
           setCurrentLanguage(savedLanguage);
           setIsLoading(false);
           return;
@@ -62,18 +72,18 @@ export const QRProvider = ({ children }) => {
         const navLang = navigator.language || navigator.userLanguage;
         const primaryLanguage = navLang.split('-')[0];
         
-        const supportedLanguage = languages.find(lang => lang.code === primaryLanguage);
-        
-        if (supportedLanguage) {
-          await loadTranslations(primaryLanguage);
+        if (translationsMap[primaryLanguage]) {
+          setCurrentTranslations(translationsMap[primaryLanguage]);
           setCurrentLanguage(primaryLanguage);
           localStorage.setItem('preferredLanguage', primaryLanguage);
         } else {
-          await loadTranslations('es'); // Idioma por defecto
+          setCurrentTranslations(es);
+          setCurrentLanguage('es');
         }
       } catch (error) {
         console.error("Error detectando idioma:", error);
-        await loadTranslations('es'); // Fallback a español
+        setCurrentTranslations(es);
+        setCurrentLanguage('es');
       } finally {
         setIsLoading(false);
       }
@@ -82,39 +92,23 @@ export const QRProvider = ({ children }) => {
     detectLanguage();
   }, []);
 
-  // Función para cargar traducciones
-  const loadTranslations = async (langCode) => {
-    try {
-      const response = await import(`../locales/${langCode}.json`);
-      setTranslations(response.default);
-    } catch (error) {
-      console.error(`Error cargando traducciones para ${langCode}:`, error);
-      // Cargar español como fallback
-      const fallback = await import(`../locales/es.json`);
-      setTranslations(fallback.default);
+  const changeLanguage = (langCode) => {
+    if (translationsMap[langCode]) {
+      setCurrentTranslations(translationsMap[langCode]);
+      setCurrentLanguage(langCode);
+      localStorage.setItem('preferredLanguage', langCode);
+    } else {
+      setCurrentTranslations(es);
+      setCurrentLanguage('es');
     }
-  };
-
-  // Función para cambiar idioma
-  const changeLanguage = async (langCode) => {
-    await loadTranslations(langCode);
-    setCurrentLanguage(langCode);
-    localStorage.setItem('preferredLanguage', langCode);
     setIsDropdownOpen(false);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const getCurrentLanguageDisplay = () => {
-    const lang = languages.find(l => l.code === currentLanguage);
-    return lang ? lang.fullName : "Español";
-  };
+  // ... resto del código igual
 
   // Función de traducción
   const t = (key) => {
-    return translations[key] || key;
+    return currentTranslations[key] || key;
   };
 
   const value = {
@@ -125,7 +119,7 @@ export const QRProvider = ({ children }) => {
     isDropdownOpen,
     toggleDropdown,
     getCurrentLanguageDisplay,
-    t // Función de traducción
+    t
   };
 
   return (
