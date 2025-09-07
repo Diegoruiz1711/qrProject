@@ -1,7 +1,7 @@
 // components/ProductInfo/ProductInfo.js
 import { useQR } from '../../QRContext/QRContext';
 import styles from './ProductInfo.module.css';
-import Logo from '../../assets/logo.gif';
+import Pictograma from '../../assets/pictograma.png';
 
 const ProductInfo = () => {
   const { t } = useQR();
@@ -46,7 +46,7 @@ const ProductInfo = () => {
       <div className={styles.adrContainer}>
         <div className={styles.adrHeader}>
           <h3 className={styles.adrTitle}>{t('adr')}</h3>
-          <img src={Logo} alt="ADR Logo" className={styles.adrLogo} />
+          <img src={Pictograma} alt="ADR Logo" className={styles.adrLogo} />
         </div>
         
         <div className={styles.adrContent}>
