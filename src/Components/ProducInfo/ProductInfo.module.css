@@ -1,0 +1,447 @@
+/* ProductInfo.module.css */
+.languaje {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 195, 0, 0.6) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.categoryItem {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.paraghraph {
+    margin: 15px 0;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: #333;
+    padding: 0 10px;
+}
+
+.safety {
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 195, 0, 0.6) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.instructions {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d32f2f;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.characteristics {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.nec {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 195, 0, 0.6) 100%);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.necItem {
+    margin: 12px 0;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.necLabel {
+    font-weight: bold;
+    color: #000;
+    margin-right: 5px;
+}
+
+.adrContainer {
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 195, 0, 0.6) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.adrHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.adrTitle {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #d32f2f;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.adrLogo {
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.adrContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.adrContent p {
+    margin: 0;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+}
+
+.download {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 15px 0;
+}
+
+.download button {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+    color: #FFF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.download button:hover {
+    background: linear-gradient(135deg, #333 0%, #555 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.download button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Media queries para responsive */
+@media (max-width: 1024px) {
+    .languaje {
+        padding: 15px;
+    }
+    
+    .category {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .categoryItem {
+        font-size: 1.1rem;
+        margin: 8px;
+        padding: 6px 12px;
+    }
+    
+    .safety {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .instructions {
+        font-size: 1.2rem;
+    }
+    
+    .nec {
+        padding: 15px;
+    }
+    
+    .adrContainer {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .adrTitle {
+        font-size: 1.3rem;
+    }
+    
+    .adrLogo {
+        width: 65px;
+    }
+}
+
+@media (max-width: 768px) {
+    .languaje {
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .category {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .categoryItem {
+        font-size: 1rem;
+        margin: 6px 0;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .paraghraph {
+        font-size: 1rem;
+        margin: 12px 0;
+        text-align: left;
+    }
+    
+    .safety {
+        padding: 12px;
+        margin: 15px 0;
+    }
+    
+    .instructions {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .nec {
+        padding: 12px;
+        margin: 15px 0;
+    }
+    
+    .necItem {
+        font-size: 1rem;
+    }
+    
+    .adrContainer {
+        padding: 12px;
+        margin: 15px 0;
+    }
+    
+    .adrHeader {
+        flex-direction: row;
+        text-align: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .adrTitle {
+        font-size: 1.2rem;
+    }
+    
+    .adrLogo {
+        width: 60px;
+    }
+    
+    .adrContent p {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+    
+    .download button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .languaje {
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .category {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .categoryItem {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+        margin: 5px 0;
+    }
+    
+    .paraghraph {
+        font-size: 0.95rem;
+        margin: 10px 0;
+        padding: 0 5px;
+    }
+    
+    .safety, .nec, .adrContainer {
+        padding: 10px;
+        margin: 12px 0;
+        border-radius: 10px;
+    }
+    
+    .instructions {
+        font-size: 1rem;
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+    
+    .necItem {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+    
+    .adrTitle {
+        font-size: 1.1rem;
+    }
+    
+    .adrLogo {
+        width: 50px;
+    }
+    
+    .adrContent p {
+        font-size: 0.95rem;
+        padding: 8px 10px;
+    }
+    
+    .download {
+        margin: 20px 0 10px 0;
+    }
+    
+    .download button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .download button {
+        transition: none;
+    }
+    
+    .download button:hover {
+        transform: none;
+    }
+}
+
+/* Modo oscuro opcional */
+@media (prefers-color-scheme: dark) {
+    .category, .safety, .nec, .adrContainer {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 195, 0, 0.4) 100%);
+    }
+    
+    .categoryItem, .paraghraph {
+        color: #000;
+    }
+}
+
+/* Mejora para tablets en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .languaje {
+        padding: 15px;
+    }
+    
+    .category {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .categoryItem {
+        flex: 1;
+        min-width: 200px;
+        margin: 8px;
+    }
+    
+    .adrHeader {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .adrTitle {
+        font-size: 1.3rem;
+    }
+}
+
+/* Efectos de hover para elementos interactivos */
+@media (hover: hover) {
+    .categoryItem:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .necItem:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .adrContent p:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Mejoras de impresión */
+@media print {
+    .languaje {
+        box-shadow: none;
+        background: white;
+    }
+    
+    .category, .safety, .nec, .adrContainer {
+        background: #f8f8f8 !important;
+        border: 1px solid #ccc;
+    }
+    
+    .download {
+        display: none;
+    }
+    
+    .adrLogo {
+        filter: none;
+    }
+}
