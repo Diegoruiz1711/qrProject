@@ -16,10 +16,10 @@
   "adr": "ADR",
   "riskCategory": "Catégorie de risque : 1.4G",
   "unClassification": "Classification ONU : 0336 - Articles pyrotechniques à usage technique",
-  "riskWarning": "Danger d’incendie ou de projection : tenir éloigné des sources de chaleur...",
+  "riskWarning": "Risque d'incendie ou de projection: Tenir à l'écart des sources de chaleur, étincelles, flammes nues ou surfaces chaudes. Ne pas fumer. En cas d'incendie important et en grandes quantités, évacuer la zone. Combattre l'incendie à distance en raison du risque d'explosion. Stocker avec des systèmes d'initiation protégés. Élimination: www.cialfir.com",
   "downloadFDS": "Télécharger FDS",
-  "productTitle": "Tonnerre El Toro",
-  "productSubtitle": "Pétard détonant",
+  "productTitle": "Pétard El Toro",
+  "productSubtitle": "Pétard à composition flash",
   "productDescription": "Boîte de 5 pétards à mèche produisant une explosion d’une intensité impressionnante",
   "loading": "Chargement..."
 }

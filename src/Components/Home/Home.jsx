@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div className={styles.body}>
       <div className={styles.languageSelector}>
-        <img src={Logo} alt="ADR Logo" className={styles.adrLogo} />
+        <img src={Logo} alt="Logo Cialfir" className={styles.adrLogo} />
         <div className={styles.selectedLanguage} onClick={toggleDropdown}>
           {getCurrentLanguageDisplay()}
           <span className={styles.arrow}>{isDropdownOpen ? '▲' : '▼'}</span>
